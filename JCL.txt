@@ -41,14 +41,4 @@
 //EXT.CNTRLFL  DD DISP=SHR,DSN=&CNTLNM                                          
 //EXT.ERRFILE  DD DSN=SLSNSH.TEMPIN2.ERRFILE,                                   
 //            DISP=(NEW,CATLG,),SPACE=(CYL,(1,1),RLSE)                          
-//*                                                                             
-//STEP0003 EXEC PGM=SORT                                                        
-//SYSOUT   DD SYSOUT=*                                                          
-//SORTIN   DD DSN=&CNTLNM,DISP=SHR                                              
-//SORTOF01 DD DSN=SLSNSH.TEMPIN1,DISP=(NEW,CATLG,),                             
-//            DCB=(LRECL=35,RECFM=FB),SPACE=(CYL,(1,1),RLSE)                    
-//SYSIN    DD *                                                                 
-  INREC BUILD=(91,10)                                                           
-  SORT FIELDS=COPY                                                              
-  OUTFIL FILES=01,BUILD=(25:C'C',1,10)                                          
-/*                                                                              
+//*
