@@ -1,4 +1,4 @@
-//RECCNT01 JOB (AMF02),'MBSMMPI',CLASS=H,                               JOB63367
+//RECCNT01 JOB (AMF02),'MBSMMPI',CLASS=H,                                       
 //   MSGCLASS=7, TYPRUN=SCAN,                                                   
 //             REGION=0M,MSGLEVEL=(1,1),                                        
 //             SCHENV='ANMF_NONPROD'                                            
@@ -8,7 +8,7 @@
 //* ------------------                                                          
 //* THIS IS THE ONLY SECTION TO BE MODIFIED.                                    
 //*                                                                             
-//* BEFORE RUNNING DO 'C ALL 999999 <LERECL OF INPUT FILE + 1>'                    
+//* BEFORE RUNNING DO 'C ALL 99999 <LERECL OF INPUT FILE + 1>'                    
 //**********************************************************************        
 //SYMBVARS SET FILENM=SLSNSH.INPUT.RECORD.COUNT2                                
 //         SET CNTLNM=SLSNSH.CONTROL.RECORD.COUNT4                              
@@ -30,9 +30,9 @@
 //SORTOF01 DD DSN=&&TEMP01,DISP=(NEW,PASS,),                                    
 //            DCB=(LRECL=23,RECFM=FB),SPACE=(CYL,(1,1),RLSE)                    
 //SYSIN    DD *                                                                 
-  INREC OVERLAY=(999999:SEQNUM,10,ZD)                                           
-  SORT FIELDS=(999999,10,ZD,D)                                                  
-  OUTFIL FILES=01,ENDREC=01,BUILD=(1,11,X,C'A',999999,10)                       
+  INREC OVERLAY=(99999:SEQNUM,10,ZD)                                              
+  SORT FIELDS=(99999,10,ZD,D)                                                     
+  OUTFIL FILES=01,ENDREC=01,BUILD=(1,11,X,C'A',99999,10)                          
 /*                                                                              
 //*                                                                             
 //A       EXEC SAPPER,PROGEXT=MBSBNAN9,EDCOND=0,SRTCOND=0,SUFFX=A               
@@ -41,4 +41,3 @@
 //EXT.CNTRLFL  DD DISP=SHR,DSN=&CNTLNM                                          
 //EXT.ERRFILE  DD DSN=SLSNSH.TEMPIN2.ERRFILE,                                   
 //            DISP=(NEW,CATLG,),SPACE=(CYL,(1,1),RLSE)                          
-//*
